@@ -1,11 +1,12 @@
 import { ReactNode, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BarChart3, Lightbulb, MessageSquare, ChevronLeft, ChevronRight, ClipboardCheck, Map, Moon, Sun, BookOpen, Menu, X } from "lucide-react";
+import { BarChart3, Lightbulb, MessageSquare, ChevronLeft, ChevronRight, ClipboardCheck, Map, Moon, Sun, BookOpen, Menu, X, RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import ActivityFeed from "@/components/ActivityFeed";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useBusinessProfile } from "@/contexts/BusinessProfileContext";
 
 const navItems = [
   { label: "Analytics", icon: BarChart3, path: "/" },
@@ -56,6 +57,7 @@ function SidebarContent({ collapsed, location, onNavigate }: { collapsed: boolea
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const isMobile = useIsMobile();
+  const { resetProfile } = useBusinessProfile();
   const [collapsed, setCollapsed] = useState(false);
   const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -83,13 +85,20 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                   <span className="font-mono text-sm font-bold tracking-tight text-foreground">Beacon</span>
                 </div>
                 <SidebarContent collapsed={false} location={location} onNavigate={() => setMobileOpen(false)} />
-                <div className="border-t border-border p-3">
+                <div className="border-t border-border p-3 space-y-1">
                   <button
                     onClick={() => setDark((v) => !v)}
                     className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
                   >
                     {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                     <span>{dark ? "Light Mode" : "Dark Mode"}</span>
+                  </button>
+                  <button
+                    onClick={() => { resetProfile(); setMobileOpen(false); }}
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+                  >
+                    <RotateCcw className="h-4 w-4" />
+                    <span>Reset Onboarding</span>
                   </button>
                 </div>
               </SheetContent>
@@ -173,6 +182,19 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               {!collapsed && (
                 <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="overflow-hidden whitespace-nowrap">
                   {dark ? "Light Mode" : "Dark Mode"}
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+          <button
+            onClick={resetProfile}
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+          >
+            <RotateCcw className="h-4 w-4 shrink-0" />
+            <AnimatePresence>
+              {!collapsed && (
+                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="overflow-hidden whitespace-nowrap">
+                  Reset Onboarding
                 </motion.span>
               )}
             </AnimatePresence>
