@@ -1,4 +1,4 @@
-import { mockPublishedContent } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, TrendingDown, Eye, MousePointerClick, Share2 } from "lucide-react";
@@ -17,7 +17,8 @@ const performanceData = Array.from({ length: 30 }, (_, i) => {
 });
 
 export default function ContentPerformance() {
-  const published = mockPublishedContent.filter((c) => c.status === "published");
+  const { publishedContent } = useIndustryData();
+  const published = publishedContent.filter((c) => c.status === "published");
   const topPerforming = [...published].sort((a, b) => b.views - a.views).slice(0, 3);
   const needsAttention = [...published].sort((a, b) => a.views - b.views).slice(0, 2);
 

@@ -1,9 +1,10 @@
-import { mockApprovedCorrections } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { motion } from "framer-motion";
 import { CheckSquare } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export default function ApprovedCorrections() {
+  const { approvedCorrections } = useIndustryData();
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -17,7 +18,7 @@ export default function ApprovedCorrections() {
       </div>
       <p className="mb-5 text-xs text-muted-foreground">Previously reviewed and applied corrections</p>
 
-      {mockApprovedCorrections.length === 0 ? (
+      {approvedCorrections.length === 0 ? (
         <p className="text-sm text-muted-foreground">No approved corrections yet</p>
       ) : (
         <div className="overflow-x-auto">
@@ -31,7 +32,7 @@ export default function ApprovedCorrections() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {mockApprovedCorrections.map((c) => (
+              {approvedCorrections.map((c) => (
                 <TableRow key={c.id}>
                   <TableCell className="text-xs text-muted-foreground whitespace-nowrap">
                     {new Date(c.dateApproved).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { mockContentCandidates, mockGeneratedContent, ContentCandidate } from "@/data/mockData";
+import { ContentCandidate } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { contentStore, PipelineItem, ContentStatus } from "@/data/contentStore";
 import ContentSourceTrail from "@/components/ContentSourceTrail";
 import ContentComposer from "@/components/ContentComposer";
@@ -35,6 +36,7 @@ const typeIcons: Record<string, React.ReactNode> = {
 type FlowStep = "idle" | "generating" | "preview" | "editing" | "publishing" | "published";
 
 export default function ContentPipeline({ onPublish }: { onPublish?: () => void }) {
+  const { contentCandidates, generatedContent } = useIndustryData();
   const [activeCandidate, setActiveCandidate] = useState<ContentCandidate | null>(null);
   const [flowStep, setFlowStep] = useState<FlowStep>("idle");
   const [generatedBody, setGeneratedBody] = useState("");
@@ -52,7 +54,7 @@ export default function ContentPipeline({ onPublish }: { onPublish?: () => void 
     setActiveCandidate(candidate);
     setFlowStep("generating");
     setTimeout(() => {
-      const body = mockGeneratedContent[candidate.id] || `# ${candidate.title}\n\nGenerated content for this ${candidate.contentType === "blog_post" ? "blog post" : "newsletter"} based on team questions and search trends.\n\n## Overview\n\n${candidate.reasoning}\n\n## Key Points\n\n${candidate.keyTopics.map(t => `- ${t}`).join("\n")}\n\n## Common Questions\n\n${candidate.teamQuestions.map(q => `**Q:** ${q}`).join("\n\n")}`;
+      const body = generatedContent[candidate.id] || `# ${candidate.title}\n\nGenerated content for this ${candidate.contentType === "blog_post" ? "blog post" : "newsletter"} based on team questions and search trends.\n\n## Overview\n\n${candidate.reasoning}\n\n## Key Points\n\n${candidate.keyTopics.map(t => `- ${t}`).join("\n")}\n\n## Common Questions\n\n${candidate.teamQuestions.map(q => `**Q:** ${q}`).join("\n\n")}`;
       setGeneratedBody(body);
       setEditableBody(body);
       setFlowStep("preview");
@@ -172,7 +174,7 @@ export default function ContentPipeline({ onPublish }: { onPublish?: () => void 
       <div className="space-y-3">
         <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">AI-Identified Opportunities</h3>
         <div className="grid gap-4">
-          {mockContentCandidates.map((candidate, i) => (
+          {contentCandidates.map((candidate, i) => (
             <motion.div
               key={candidate.id}
               initial={{ opacity: 0, y: 16 }}
