@@ -44,9 +44,9 @@ export const mockDigests: WeeklyDigest[] = [
     status: "sent",
     recipientCount: 23,
     items: [
-      { type: "correction_approved", title: "RGB order rent increase correction", description: "Updated from 3.5% to 2.75% for 1-year, 5.25% for 2-year per 2026 RGB order.", submittedBy: "Sarah M.", date: "2026-02-05" },
-      { type: "correction_approved", title: "ECB fine amount update", description: "Work without permit penalty updated to $10,000 per 2026 schedule.", submittedBy: "Mike T.", date: "2026-02-05" },
-      { type: "content_published", title: "Understanding Rent Stabilization Changes for 2026", description: "New blog post published covering the 2026 RGB order and its implications.", date: "2026-02-03" },
+      { type: "correction_approved", title: "QBI deduction threshold correction", description: "Updated from $150,000 to $182,100 (single) / $364,200 (MFJ) for 2026.", submittedBy: "Sarah M.", date: "2026-02-05" },
+      { type: "correction_approved", title: "LinkedIn ad conversion rate update", description: "B2B professional services conversion rate updated to 2.5-4%.", submittedBy: "Mike T.", date: "2026-02-05" },
+      { type: "content_published", title: "2026 Tax Planning Strategies for Small Business Owners", description: "New blog post published covering QBI deductions, SALT workarounds, and retirement planning.", date: "2026-02-03" },
     ],
   },
   {
@@ -56,9 +56,9 @@ export const mockDigests: WeeklyDigest[] = [
     status: "draft",
     recipientCount: 23,
     items: [
-      { type: "correction_approved", title: "J-51 tax exemption eligibility update", description: "Added 2026 income limits and building requirements for J-51.", submittedBy: "David L.", date: "2026-02-01" },
-      { type: "correction_rejected", title: "DOB inspection requirement clarification", description: "Suggestion about TCO inspection requirements was rejected — original answer was correct.", submittedBy: "Lisa K.", date: "2026-02-09" },
-      { type: "content_published", title: "ECB Violation Penalty Guide: 2026 Edition", description: "Draft blog post ready for review.", date: "2026-02-05" },
+      { type: "correction_approved", title: "SALT workaround state count update", description: "Updated from 30 to 36 states with PTE-level tax elections.", submittedBy: "David L.", date: "2026-02-01" },
+      { type: "correction_rejected", title: "Retainer commitment length clarification", description: "Suggestion about 12-month minimums was rejected — month-to-month is standard.", submittedBy: "Lisa K.", date: "2026-02-09" },
+      { type: "content_published", title: "Client Billing Dispute Resolution Guide", description: "Draft blog post ready for review.", date: "2026-02-05" },
     ],
   },
 ];
@@ -75,12 +75,12 @@ export const mockNewsletterEditions: NewsletterEdition[] = [
     openRate: 51.2,
     clickRate: 14.1,
     sections: [
-      { heading: "🔥 Trending This Week", content: "DHCR rent stabilization questions dominated with 23 queries. The 2026 RGB order continues to generate interest." },
-      { heading: "📝 Knowledge Base Updates", content: "2 corrections applied: RGB rent increase rates updated, ECB fine amounts corrected." },
-      { heading: "📰 New Content", content: "Published: 'Understanding Rent Stabilization Changes for 2026' — already 2,156 views!" },
-      { heading: "❓ Most Asked", content: "1. What are the DHCR rent stabilization requirements? (23 asks)\n2. How do I file for a TCO? (18 asks)\n3. What zoning allows medical offices? (15 asks)" },
+      { heading: "🔥 Trending This Week", content: "Tax planning questions dominated with 23 queries. The 2026 QBI deduction changes continue to generate interest." },
+      { heading: "📝 Knowledge Base Updates", content: "2 corrections applied: QBI thresholds updated, LinkedIn conversion rates corrected." },
+      { heading: "📰 New Content", content: "Published: '2026 Tax Planning Strategies for Small Business Owners' — already 2,156 views!" },
+      { heading: "❓ Most Asked", content: "1. What are the 2026 pass-through entity deduction rules? (23 asks)\n2. How should we structure advisory retainers? (18 asks)\n3. What marketing channels work for B2B? (15 asks)" },
     ],
-    body: "# Beacon Weekly — Feb 3-7, 2026\n\n## 🔥 Trending This Week\nDHCR rent stabilization questions dominated with 23 queries. The 2026 RGB order continues to generate interest.\n\n## 📝 Knowledge Base Updates\n2 corrections applied:\n- RGB rent increase rates updated (2.75% / 5.25%)\n- ECB fine amounts corrected ($10,000 for work w/o permit)\n\n## 📰 New Content\nPublished: **Understanding Rent Stabilization Changes for 2026** — already 2,156 views!\n\n## ❓ Most Asked Questions\n1. What are the DHCR rent stabilization requirements? (23 asks)\n2. How do I file for a TCO? (18 asks)\n3. What zoning allows medical offices? (15 asks)",
+    body: "# Beacon Weekly — Feb 3-7, 2026\n\n## 🔥 Trending This Week\nTax planning questions dominated with 23 queries. The 2026 QBI deduction changes continue to generate interest.\n\n## 📝 Knowledge Base Updates\n2 corrections applied:\n- QBI deduction thresholds updated ($182,100 / $364,200)\n- LinkedIn ad conversion rates corrected (2.5-4%)\n\n## 📰 New Content\nPublished: **2026 Tax Planning Strategies for Small Business Owners** — already 2,156 views!\n\n## ❓ Most Asked Questions\n1. What are the 2026 pass-through entity deduction rules? (23 asks)\n2. How should we structure advisory retainers? (18 asks)\n3. What marketing channels work for B2B services? (15 asks)",
   },
   {
     id: 2,
@@ -93,12 +93,12 @@ export const mockNewsletterEditions: NewsletterEdition[] = [
     openRate: null,
     clickRate: null,
     sections: [
-      { heading: "🔥 Trending This Week", content: "DOB permit renewals and violations were the hot topics with 15 combined queries." },
-      { heading: "📝 Knowledge Base Updates", content: "1 correction applied: J-51 tax exemption eligibility updated with 2026 requirements." },
-      { heading: "📰 New Content", content: "Draft ready: 'ECB Violation Penalty Guide: 2026 Edition'" },
-      { heading: "🗺️ Roadmap Update", content: "Auto-generate violation response letters — MVP ready for testing!" },
+      { heading: "🔥 Trending This Week", content: "Client management and billing disputes were the hot topics with 15 combined queries." },
+      { heading: "📝 Knowledge Base Updates", content: "1 correction applied: SALT workaround state count updated to 36." },
+      { heading: "📰 New Content", content: "Draft ready: 'Client Billing Dispute Resolution Guide'" },
+      { heading: "🗺️ Roadmap Update", content: "Auto-generate client proposal drafts — MVP ready for testing!" },
     ],
-    body: "# Beacon Weekly — Feb 10-14, 2026\n\n## 🔥 Trending This Week\nDOB permit renewals and violations were the hot topics with 15 combined queries.\n\n## 📝 Knowledge Base Updates\n1 correction applied:\n- J-51 tax exemption eligibility updated with 2026 requirements\n\n## 📰 New Content\nDraft ready: **ECB Violation Penalty Guide: 2026 Edition**\n\n## 🗺️ Roadmap Update\n- Auto-generate violation response letters — MVP ready for testing!",
+    body: "# Beacon Weekly — Feb 10-14, 2026\n\n## 🔥 Trending This Week\nClient management and billing disputes were the hot topics with 15 combined queries.\n\n## 📝 Knowledge Base Updates\n1 correction applied:\n- SALT workaround state count updated to 36\n\n## 📰 New Content\nDraft ready: **Client Billing Dispute Resolution Guide**\n\n## 🗺️ Roadmap Update\n- Auto-generate client proposal drafts — MVP ready for testing!",
   },
   {
     id: 3,
@@ -111,9 +111,9 @@ export const mockNewsletterEditions: NewsletterEdition[] = [
     openRate: 47.3,
     clickRate: 12.8,
     sections: [
-      { heading: "🔥 Trending This Week", content: "Alt-1 filing process changes sparked the most questions this week." },
-      { heading: "📰 New Content", content: "Published: 'How to Navigate the New Alt-1 Filing Process in NYC' and 'January 2026 Regulatory Roundup'" },
+      { heading: "🔥 Trending This Week", content: "Advisory retainer structure questions sparked the most questions this week." },
+      { heading: "📰 New Content", content: "Published: 'How to Structure Advisory Retainer Agreements That Work' and 'January 2026 Industry Roundup'" },
     ],
-    body: "# Beacon Weekly — Jan 27-31, 2026\n\n## 🔥 Trending This Week\nAlt-1 filing process changes sparked the most questions.\n\n## 📰 New Content\n- Published: **How to Navigate the New Alt-1 Filing Process in NYC** (1,243 views)\n- Published: **January 2026 Regulatory Roundup** (892 views)",
+    body: "# Beacon Weekly — Jan 27-31, 2026\n\n## 🔥 Trending This Week\nAdvisory retainer structure questions sparked the most questions.\n\n## 📰 New Content\n- Published: **How to Structure Advisory Retainer Agreements That Work** (1,243 views)\n- Published: **January 2026 Industry Roundup** (892 views)",
   },
 ];

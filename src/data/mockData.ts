@@ -1,4 +1,4 @@
-// Mock data mirroring the Python analytics backend
+// Mock data for Beacon — a content intelligence platform for professional service firms
 
 export interface MetricData {
   label: string;
@@ -65,29 +65,29 @@ export interface TopUser {
 export const mockMetrics: MetricData[] = [
   { label: "Total Questions", value: "1,247", sublabel: "Last 30 days", trend: 12.5, icon: "MessageSquare" },
   { label: "Success Rate", value: "94.2%", sublabel: "1,175 answered", trend: 2.1, icon: "CheckCircle" },
-  { label: "Active Users", value: "23", sublabel: "Across 4 spaces", trend: 8.3, icon: "Users" },
-  { label: "API Cost", value: "$18.42", sublabel: "Anthropic $14.20 · Voyage $4.22", trend: -3.2, icon: "DollarSign" },
+  { label: "Active Users", value: "23", sublabel: "Across 4 teams", trend: 8.3, icon: "Users" },
+  { label: "API Cost", value: "$18.42", sublabel: "AI models $14.20 · Embeddings $4.22", trend: -3.2, icon: "DollarSign" },
   { label: "Avg Response", value: "2.3s", sublabel: "P95: 4.1s", trend: -8.5, icon: "Clock" },
   { label: "Pending Reviews", value: "7", sublabel: "3 corrections · 4 feedback", trend: 0, icon: "AlertCircle" },
 ];
 
 export const mockConversations: Conversation[] = [
-  { id: 1, timestamp: "2026-02-10T14:32:00", userName: "Sarah M.", question: "What are the DHCR requirements for rent stabilized apartment deregulation in 2026?", responsePreview: "Under the Housing Stability and Tenant Protection Act (HSTPA), high-rent vacancy deregulation has been eliminated...", fullResponse: "Under the Housing Stability and Tenant Protection Act (HSTPA), **high-rent vacancy deregulation has been eliminated**. This means landlords can no longer deregulate rent-stabilized apartments based on reaching a rent threshold.\n\n### Key Points:\n\n1. **No more high-rent deregulation** — Previously, apartments reaching $2,774/month could be deregulated upon vacancy. HSTPA eliminated this.\n\n2. **Vacancy increases are limited** — The RGB sets allowable vacancy increases, which are significantly lower than pre-HSTPA levels.\n\n3. **Preferential rent protections** — Landlords can no longer revoke preferential rents upon renewal. The preferential rent becomes the base for future increases.\n\n4. **Individual Apartment Improvements (IAIs)** — Still allowed but capped at $15,000 over 15 years, and increases are limited to 1/168th of the cost for buildings with 35+ units.\n\n### What This Means for Your Practice:\nClients asking about deregulation strategies should be advised that the primary legal path is through the luxury decontrol provisions that remain (for units above $2,774 AND tenant income above $200,000 for two consecutive years).\n\n**Sources:** HSTPA 2019, DHCR Operational Bulletin 2026-1, RGB Order #58", topic: "DHCR", hadSources: true, sources: ["HSTPA 2019 Full Text", "DHCR Operational Bulletin 2026-1", "RGB Order #58"], answered: true, responseTimeMs: 1820, confidence: 0.92 },
-  { id: 2, timestamp: "2026-02-10T13:15:00", userName: "Mike T.", question: "Can you look up violations for 123 Main St, Manhattan?", responsePreview: "I found 3 active violations for 123 Main Street, Manhattan (BIN: 1234567)...", fullResponse: "I found **3 active violations** for 123 Main Street, Manhattan (BIN: 1234567):\n\n### Active Violations:\n\n| # | Type | Description | Issued | Status |\n|---|------|-------------|--------|--------|\n| 1 | DOB | Work without permit — 2nd floor renovation | Jan 15, 2026 | Open |\n| 2 | ECB | Failure to maintain — facade deterioration | Dec 8, 2025 | Hearing scheduled |\n| 3 | HPD | Lead paint — apartment 3B, peeling paint in child's bedroom | Nov 22, 2025 | Open |\n\n### Recommended Actions:\n- **Violation 1:** File for an after-the-fact permit (Alt-2) immediately to mitigate penalties\n- **Violation 2:** Schedule facade inspection with licensed engineer; hearing is Feb 20, 2026\n- **Violation 3:** Urgent — hire licensed lead abatement contractor within 21 days per Local Law 1\n\n**Total potential penalties:** $15,000-$35,000 depending on hearing outcomes.\n\n**Sources:** DOB BIS, ECB Portal, HPD Violations Database", topic: "Violations", hadSources: true, sources: ["DOB BIS Database", "ECB Portal", "HPD Violations Database"], answered: true, responseTimeMs: 3200, confidence: 0.88 },
-  { id: 3, timestamp: "2026-02-10T11:45:00", userName: "David L.", question: "What zoning district allows medical offices in Brooklyn?", responsePreview: "Medical offices are permitted in several zoning districts. In Brooklyn, C1-C6 commercial districts...", fullResponse: "Medical offices are permitted in several zoning districts in Brooklyn. Here's a breakdown:\n\n### As-of-Right (No Special Permit Needed):\n- **C1-1 through C1-5** — Medical offices under 10,000 sqft\n- **C2-1 through C2-5** — Medical offices of any size\n- **C4, C5, C6 districts** — Medical offices permitted\n- **C8 districts** — Limited to ground floor\n\n### Special Permit Required:\n- **C1 zones** — Medical offices over 10,000 sqft need BSA special permit\n- **M1 zones** — Medical offices allowed with CPC special permit under ZR 42-10\n\n### Mixed-Use Districts (New 2026):\n- **MX districts** in Gowanus, East New York — Medical offices permitted as community facility use\n\n### Key Considerations:\n1. Check if the specific lot has any restrictive declarations\n2. Ambulatory surgery centers may have different requirements\n3. Parking requirements vary by district (typically 1 space per 400 sqft)\n\n**Sources:** NYC Zoning Resolution, ZR 22-14, ZR 32-15, DCP Zoning Handbook", topic: "Zoning", hadSources: true, sources: ["NYC Zoning Resolution", "ZR 22-14", "ZR 32-15", "DCP Zoning Handbook"], answered: true, responseTimeMs: 2100, confidence: 0.85 },
-  { id: 4, timestamp: "2026-02-09T16:20:00", userName: "Lisa K.", question: "How do I file for a temporary certificate of occupancy?", responsePreview: "To obtain a Temporary Certificate of Occupancy (TCO), you'll need to submit through DOB NOW...", fullResponse: "To obtain a Temporary Certificate of Occupancy (TCO), follow these steps:\n\n### Prerequisites:\n- All life-safety items must be completed and signed off\n- Partial inspection sign-offs for completed portions\n- Outstanding items must not affect occupant safety\n\n### Filing Process:\n\n1. **Log into DOB NOW** → Select your job filing → Request TCO\n2. **Submit required documents:**\n   - Signed-off partial inspections\n   - Letter from architect/engineer certifying safety\n   - List of outstanding items with completion timeline\n   - Fire Department letter of approval (if applicable)\n3. **Pay the fee:** $100 for initial TCO + $100/month renewal\n4. **Schedule TCO inspection** with DOB\n5. **TCO is valid for 90 days** and can be renewed\n\n### Important Notes:\n- TCO allows occupancy while minor work continues\n- Cannot have open DOB violations on the premises\n- Maximum 4 renewals before DOB requires final C of O\n- Insurance must be current\n\n**Tip:** Submit the TCO request at least 2 weeks before you need occupancy.\n\n**Sources:** DOB TCO Guidelines, 28-118.3.2, Buildings Bulletin 2025-006", topic: "Certificate of Occupancy", hadSources: true, sources: ["DOB TCO Guidelines", "Admin Code 28-118.3.2", "Buildings Bulletin 2025-006"], answered: true, responseTimeMs: 1950, confidence: 0.91 },
-  { id: 5, timestamp: "2026-02-09T14:00:00", userName: "James R.", question: "What's the egress requirement for a Class A multiple dwelling?", responsePreview: "For Class A multiple dwellings under the MDL, egress requirements depend on the number of units...", fullResponse: "For Class A multiple dwellings under the Multiple Dwelling Law (MDL), egress requirements depend on several factors:\n\n### Minimum Egress Requirements:\n\n**Buildings with 3+ stories or 4+ units:**\n- Minimum **2 means of egress** from each floor\n- At least **1 enclosed stairway** (fire-rated)\n- Stairs must be minimum **44 inches wide** (36 inches for buildings under 4 stories with fewer than 22 units per floor)\n\n**Fire Escape Requirements:**\n- Buildings erected before 1968 may use fire escapes as second means of egress\n- New buildings must have enclosed stairs — fire escapes not permitted\n- Fire escapes must extend to ground level or have approved drop ladder\n\n### Additional Requirements:\n- **Exit signs** at all egress points (illuminated)\n- **Emergency lighting** in all corridors and stairways\n- **Self-closing doors** on all apartment entrance doors (Local Law 10/1999)\n- **Maximum travel distance** to exit: 100 feet (200 feet with sprinklers)\n\n### Common Violations:\n- Blocked egress paths\n- Missing self-closing devices\n- Inadequate emergency lighting\n- Locked exit doors during occupied hours\n\n**Sources:** MDL §53, Building Code §1027, Local Law 10/1999", topic: "MDL", hadSources: true, sources: ["MDL §53", "Building Code §1027", "Local Law 10/1999"], answered: true, responseTimeMs: 2400, confidence: 0.87 },
-  { id: 6, timestamp: "2026-02-09T10:30:00", userName: "Sarah M.", question: "Is there a penalty for late DOB permit renewal?", responsePreview: "Yes, if a DOB work permit expires and work continues without renewal, penalties can include...", fullResponse: "Yes, if a DOB work permit expires and work continues without renewal, there are several consequences:\n\n### Penalties for Expired Permits:\n\n1. **Stop Work Order (SWO)** — DOB can issue an immediate SWO if work is found in progress with an expired permit\n2. **ECB violation** — Fine of **$2,500-$10,000** for work without a valid permit\n3. **Permit reinstatement fee** — Additional fees to reactivate the expired permit\n4. **Possible re-inspection** — DOB may require re-inspection of work done during lapsed period\n\n### Renewal Timeline:\n- Permits are valid for **1 year** from issuance\n- Renewal must be filed **before expiration**\n- If expired less than 1 year: can renew with late fee\n- If expired more than 1 year: may need to refile the entire application\n\n### How to Avoid Issues:\n- Set calendar reminders 60 and 30 days before expiration\n- File renewal through DOB NOW — processing takes 5-10 business days\n- Ensure insurance and workers' comp are current before renewing\n\n**Note:** I wasn't able to find the exact 2026 late fee schedule — this may have been updated recently. I recommend checking DOB NOW directly or calling 311 for current fees.\n\n**Sources:** Admin Code 28-105.9, DOB Rules", topic: "DOB", hadSources: false, sources: [], answered: true, responseTimeMs: 1600, confidence: 0.79 },
+  { id: 1, timestamp: "2026-02-10T14:32:00", userName: "Sarah M.", question: "What are the new IRS guidelines for pass-through entity deductions in 2026?", responsePreview: "Under the updated IRS guidance for 2026, pass-through entity (PTE) deductions have been modified...", fullResponse: "Under the updated IRS guidance for 2026, **pass-through entity (PTE) deductions** have been modified to reflect new income thresholds and reporting requirements.\n\n### Key Points:\n\n1. **Qualified Business Income (QBI) deduction** — The Section 199A deduction remains at 20% but with updated income phase-out thresholds for 2026.\n\n2. **New reporting requirements** — PTEs must now file Form 8995-A with additional schedules for aggregated businesses.\n\n3. **SALT workaround updates** — Several states now allow PTE-level tax elections. The IRS has confirmed these are deductible at the entity level.\n\n4. **K-1 changes** — Updated Box 20 codes for QBI reporting take effect for 2026 tax year returns.\n\n### What This Means for Your Clients:\nClients with pass-through income should review their entity elections before the March 15 deadline. The SALT workaround can save significant taxes for high-income earners in high-tax states.\n\n**Sources:** IRS Notice 2026-12, Section 199A Final Regs, AICPA Tax Section Update", topic: "Tax Planning", hadSources: true, sources: ["IRS Notice 2026-12", "Section 199A Final Regulations", "AICPA Tax Section Update"], answered: true, responseTimeMs: 1820, confidence: 0.92 },
+  { id: 2, timestamp: "2026-02-10T13:15:00", userName: "Mike T.", question: "Can you pull up the engagement letter template for new advisory clients?", responsePreview: "Here's the current engagement letter template for advisory services...", fullResponse: "Here's the current **engagement letter template** for advisory services:\n\n### Standard Advisory Engagement Letter\n\n| Section | Details |\n|---|---|\n| Scope | Advisory services as defined in the attached SOW |\n| Term | 12 months from execution date |\n| Fee Structure | Monthly retainer + hourly overage |\n| Liability Cap | 1x annual fees |\n\n### Key Clauses to Include:\n- **Scope limitation** — Clearly define what's included and excluded\n- **Fee schedule** — Monthly retainer with quarterly true-up\n- **Termination** — 30-day written notice by either party\n- **Confidentiality** — Standard NDA provisions\n- **Professional standards** — Reference to applicable professional standards\n\n### Tips:\n- Always customize the scope section for each client\n- Have the client initial each page\n- Send via DocuSign for tracking\n\n**Sources:** Firm Engagement Templates, Professional Standards Guide", topic: "Client Management", hadSources: true, sources: ["Firm Engagement Templates", "Professional Standards Guide"], answered: true, responseTimeMs: 3200, confidence: 0.88 },
+  { id: 3, timestamp: "2026-02-10T11:45:00", userName: "David L.", question: "What marketing channels work best for B2B professional services?", responsePreview: "For B2B professional services firms, the highest-performing marketing channels include...", fullResponse: "For B2B professional services firms, the highest-performing marketing channels in 2026 include:\n\n### Top Channels by ROI:\n- **LinkedIn organic + ads** — Highest B2B conversion rates, especially for thought leadership\n- **Email newsletters** — 47% of decision-makers say they consume content via email first\n- **Webinars / virtual events** — Great for lead nurturing and establishing expertise\n- **SEO / blog content** — Long-term compounding traffic, especially for how-to guides\n\n### Channel Performance Benchmarks:\n\n| Channel | Avg Cost per Lead | Conversion Rate |\n|---|---|---|\n| LinkedIn Ads | $75-150 | 2.5-4% |\n| Email Marketing | $15-30 | 3-5% |\n| Google Ads (search) | $50-120 | 3-6% |\n| Content/SEO | $20-40 | 1-3% (but compounds) |\n\n### Key Considerations:\n1. Focus on 2-3 channels rather than spreading thin\n2. Content repurposing: one blog post → LinkedIn carousel → newsletter section → webinar topic\n3. Track pipeline attribution, not just MQLs\n\n**Sources:** HubSpot B2B Benchmarks 2026, LinkedIn Marketing Guide, Firm Marketing Playbook", topic: "Marketing Strategy", hadSources: true, sources: ["HubSpot B2B Benchmarks 2026", "LinkedIn Marketing Guide", "Firm Marketing Playbook"], answered: true, responseTimeMs: 2100, confidence: 0.85 },
+  { id: 4, timestamp: "2026-02-09T16:20:00", userName: "Lisa K.", question: "How should we handle a client dispute over billing for out-of-scope work?", responsePreview: "When handling billing disputes for out-of-scope work, follow the firm's escalation procedure...", fullResponse: "When handling billing disputes for out-of-scope work, follow these steps:\n\n### Immediate Actions:\n1. **Review the engagement letter** — Check the exact scope definition\n2. **Pull the communication trail** — Emails or Slack messages where additional work was discussed\n3. **Document the timeline** — When was the work requested vs. when was the client notified about scope changes?\n\n### Escalation Procedure:\n\n1. **Level 1: Partner discussion** — Have the engagement partner call the client directly\n2. **Level 2: Scope memo** — Send a written scope clarification memo with:\n   - Original scope from engagement letter\n   - Additional work performed with dates\n   - Proposed resolution options\n3. **Level 3: Mediation** — If unresolved after 30 days, offer third-party mediation\n\n### Best Practices:\n- Never perform out-of-scope work without written approval (email suffices)\n- Send change order notifications within 48 hours\n- Build a 10% buffer into project estimates\n\n**Tip:** Document everything in your project management tool in real-time. Reconstructing a timeline after the fact is difficult.\n\n**Sources:** Client Dispute Resolution Policy, Engagement Management Guidelines", topic: "Client Management", hadSources: true, sources: ["Client Dispute Resolution Policy", "Engagement Management Guidelines"], answered: true, responseTimeMs: 1950, confidence: 0.91 },
+  { id: 5, timestamp: "2026-02-09T14:00:00", userName: "James R.", question: "What's the best CRM setup for a 20-person consulting firm?", responsePreview: "For a 20-person consulting firm, I'd recommend a tiered CRM approach...", fullResponse: "For a 20-person consulting firm, here's the recommended CRM setup:\n\n### Recommended CRM Options:\n\n**Best Overall: HubSpot CRM (Professional)**\n- Free for basic, ~$800/mo for Professional\n- Built-in email tracking, deal pipeline, and reporting\n- Great integrations with LinkedIn, Gmail, and proposal tools\n\n**Runner-Up: Pipedrive**\n- ~$50/user/mo\n- Visual pipeline management\n- Best for firms focused on deal flow\n\n### Key Features to Prioritize:\n1. **Pipeline visibility** — See all prospects by stage\n2. **Email integration** — Auto-log emails with contacts\n3. **Activity reminders** — Follow-up task automation\n4. **Reporting** — Win rate, average deal size, sales cycle length\n\n### Implementation Timeline:\n- **Week 1-2:** Import contacts, configure pipeline stages\n- **Week 3-4:** Integrate email and calendar\n- **Week 5-6:** Train team, establish data entry standards\n- **Week 7-8:** First reporting cycle\n\n### Common Mistakes:\n- Over-customizing fields (keep it simple)\n- Not enforcing data entry habits\n- Skipping the training phase\n\n**Sources:** CRM Evaluation Guide, Firm Tech Stack Documentation", topic: "Technology", hadSources: true, sources: ["CRM Evaluation Guide", "Firm Tech Stack Documentation"], answered: true, responseTimeMs: 2400, confidence: 0.87 },
+  { id: 6, timestamp: "2026-02-09T10:30:00", userName: "Sarah M.", question: "Are there updated continuing education requirements for CPAs this year?", responsePreview: "Yes, several state boards have updated CPE requirements for 2026...", fullResponse: "Yes, several state boards have updated CPE requirements for 2026:\n\n### National Changes:\n- **AICPA** — New ethics course requirement every 2 years (was every 3)\n- **Data analytics** — NASBA recommending 4 CPE hours in data analytics annually\n\n### State-Specific Updates:\n1. **New York** — 40 hours/year, now requires 2 hours in DEI-related topics\n2. **California** — 80 hours/2 years, added cybersecurity requirement (4 hours)\n3. **Texas** — 40 hours/year, ethics requirement increased to 4 hours\n4. **Florida** — 80 hours/2 years, no significant changes\n\n### Deadlines:\n- NY: December 31, 2026\n- CA: March 31, 2027\n- TX: June 30, 2026\n\n### How to Stay Compliant:\n- Set calendar reminders 90 days before deadlines\n- Use approved online platforms (AICPA, state societies)\n- Track hours in your CPE tracking spreadsheet\n\n**Note:** I wasn't able to verify the exact California cybersecurity requirement — recommend checking the CA Board of Accountancy website directly.\n\n**Sources:** AICPA CPE Standards, NASBA 2026 Updates", topic: "Compliance", hadSources: false, sources: [], answered: true, responseTimeMs: 1600, confidence: 0.79 },
 ];
 
 export const mockTopics: TopicBreakdown[] = [
-  { topic: "DHCR / Rent Stabilization", count: 312, percentage: 25, color: "hsl(280, 67%, 55%)" },
-  { topic: "Zoning", count: 249, percentage: 20, color: "hsl(217, 91%, 60%)" },
-  { topic: "DOB Permits", count: 199, percentage: 16, color: "hsl(36, 95%, 50%)" },
-  { topic: "Violations", count: 162, percentage: 13, color: "hsl(0, 72%, 51%)" },
-  { topic: "Certificate of Occupancy", count: 125, percentage: 10, color: "hsl(142, 71%, 45%)" },
-  { topic: "Building Code", count: 100, percentage: 8, color: "hsl(190, 70%, 50%)" },
-  { topic: "MDL", count: 62, percentage: 5, color: "hsl(320, 60%, 50%)" },
+  { topic: "Tax Planning", count: 312, percentage: 25, color: "hsl(280, 67%, 55%)" },
+  { topic: "Client Management", count: 249, percentage: 20, color: "hsl(217, 91%, 60%)" },
+  { topic: "Marketing Strategy", count: 199, percentage: 16, color: "hsl(36, 95%, 50%)" },
+  { topic: "Compliance", count: 162, percentage: 13, color: "hsl(0, 72%, 51%)" },
+  { topic: "Technology", count: 125, percentage: 10, color: "hsl(142, 71%, 45%)" },
+  { topic: "Operations", count: 100, percentage: 8, color: "hsl(190, 70%, 50%)" },
+  { topic: "HR & Talent", count: 62, percentage: 5, color: "hsl(320, 60%, 50%)" },
   { topic: "General", count: 38, percentage: 3, color: "hsl(220, 10%, 55%)" },
 ];
 
@@ -106,73 +106,73 @@ export const mockDailyUsage: DailyUsage[] = Array.from({ length: 30 }, (_, i) =>
 export const mockContentCandidates: ContentCandidate[] = [
   {
     id: 1,
-    title: "NYC DOB Updates Filing Requirements for Alt-2 Applications",
+    title: "How to Structure Advisory Retainer Agreements That Actually Work",
     contentType: "blog_post",
     priority: "high",
     relevanceScore: 0.94,
     searchInterest: 87,
-    affectsServices: ["Permit Filing", "Zoning Analysis"],
-    keyTopics: ["DOB", "Alt-2", "Filing Requirements"],
-    reasoning: "High search interest + affects core services. Team received 12 questions about this in the past week.",
-    reviewQuestion: "Should we frame this as a how-to guide or a regulatory update?",
+    affectsServices: ["Advisory Services", "Client Onboarding"],
+    keyTopics: ["Engagement Letters", "Retainers", "Scope Management"],
+    reasoning: "High search interest + affects core services. Team received 12 questions about engagement structures in the past week.",
+    reviewQuestion: "Should we frame this as a how-to guide or a case study?",
     teamQuestionsCount: 12,
-    teamQuestions: ["What changed in the Alt-2 filing?", "Do existing applications need to be refiled?"],
-    mostCommonAngle: "Step-by-step guide for the new process",
-    sourceUrl: "https://www1.nyc.gov/site/buildings/",
+    teamQuestions: ["What should the retainer agreement include?", "How do we handle scope creep?"],
+    mostCommonAngle: "Step-by-step guide with template download",
+    sourceUrl: "",
     contentPreview: "",
     createdAt: "2026-02-09",
   },
   {
     id: 2,
-    title: "DHCR Releases 2026 Rent Guidelines Board Order Summary",
+    title: "2026 Tax Planning Strategies Every Small Business Should Know",
     contentType: "newsletter",
     priority: "high",
     relevanceScore: 0.91,
     searchInterest: 92,
-    affectsServices: ["Rent Stabilization Consulting"],
-    keyTopics: ["DHCR", "RGB", "Rent Increases"],
-    reasoning: "Extremely high search interest. Annual event that all clients need to know about.",
-    reviewQuestion: "Include comparison table with previous years?",
+    affectsServices: ["Tax Planning", "Advisory"],
+    keyTopics: ["Tax Strategy", "Pass-Through Entities", "Deductions"],
+    reasoning: "Extremely high search interest. Annual planning season drives significant client inquiries.",
+    reviewQuestion: "Include comparison table with prior year strategies?",
     teamQuestionsCount: 18,
-    teamQuestions: ["What are the new allowable increases?", "Does this affect preferential rents?"],
-    mostCommonAngle: "What landlords need to know for 2026 renewals",
-    sourceUrl: "https://rentguidelinesboard.cityofnewyork.us/",
+    teamQuestions: ["What changed for pass-through deductions?", "How does the SALT workaround apply?"],
+    mostCommonAngle: "What business owners need to know before Q2",
+    sourceUrl: "",
     contentPreview: "",
     createdAt: "2026-02-08",
   },
   {
     id: 3,
-    title: "Understanding the New ECB Penalty Schedule for Construction Sites",
+    title: "Client Onboarding Checklist: From First Call to Kickoff",
     contentType: "blog_post",
     priority: "medium",
     relevanceScore: 0.78,
     searchInterest: 54,
-    affectsServices: ["Violation Resolution", "Construction Management"],
-    keyTopics: ["ECB", "Violations", "Penalties"],
-    reasoning: "Moderate search interest but directly impacts violation resolution clients.",
-    reviewQuestion: "Include a downloadable penalty reference sheet?",
+    affectsServices: ["Client Management", "Operations"],
+    keyTopics: ["Onboarding", "Process", "Client Experience"],
+    reasoning: "Moderate search interest but directly improves client retention.",
+    reviewQuestion: "Include a downloadable checklist template?",
     teamQuestionsCount: 6,
-    teamQuestions: ["How much are the new fines?", "Which violations are affected?"],
-    mostCommonAngle: "Common violations and how to avoid them",
-    sourceUrl: "https://www1.nyc.gov/site/buildings/",
+    teamQuestions: ["What documents do we need from new clients?", "What's the ideal onboarding timeline?"],
+    mostCommonAngle: "Reduce client churn with a repeatable onboarding process",
+    sourceUrl: "",
     contentPreview: "",
     createdAt: "2026-02-07",
   },
   {
     id: 4,
-    title: "Zoning Text Amendment: New Mixed-Use Districts in Brooklyn",
+    title: "How We Use AI to Answer 94% of Team Questions Instantly",
     contentType: "blog_post",
     priority: "medium",
     relevanceScore: 0.72,
     searchInterest: 45,
-    affectsServices: ["Zoning Analysis", "Land Use"],
-    keyTopics: ["Zoning", "Mixed-Use", "Brooklyn"],
-    reasoning: "Relevant to Brooklyn-focused clients. Good SEO opportunity for local zoning queries.",
-    reviewQuestion: "Should we include an interactive zoning map?",
+    affectsServices: ["Operations", "Technology"],
+    keyTopics: ["AI", "Knowledge Management", "Productivity"],
+    reasoning: "Great thought leadership angle. Shows how small firms can leverage AI for internal efficiency.",
+    reviewQuestion: "Should we include real metrics from our usage?",
     teamQuestionsCount: 4,
-    teamQuestions: ["Which neighborhoods are affected?", "What uses are now permitted?"],
-    mostCommonAngle: "Opportunities for property owners in affected areas",
-    sourceUrl: "https://zap.planning.nyc.gov/",
+    teamQuestions: ["How does the AI knowledge base work?", "Can we train it on our specific processes?"],
+    mostCommonAngle: "Case study: AI-powered knowledge management for small firms",
+    sourceUrl: "",
     contentPreview: "",
     createdAt: "2026-02-06",
   },
@@ -241,36 +241,36 @@ export const mockSlashCommands: SlashCommandUsage[] = [
 ];
 
 export const mockSuggestions: Suggestion[] = [
-  { id: 1, user: "Sarah M.", when: "2026-02-10T09:30:00", wrongAnswer: "TCO requires full DOB inspection", correctAnswer: "TCO can be issued with partial inspection sign-off", status: "pending" },
-  { id: 2, user: "Mike T.", when: "2026-02-09T14:15:00", wrongAnswer: "Rent stabilization threshold is $2,700", correctAnswer: "High-rent deregulation was eliminated under HSTPA", status: "pending" },
-  { id: 3, user: "David L.", when: "2026-02-08T11:00:00", wrongAnswer: "C1 zones allow medical offices by right", correctAnswer: "C1 zones require special permit for medical offices over 10,000 sqft", status: "pending" },
+  { id: 1, user: "Sarah M.", when: "2026-02-10T09:30:00", wrongAnswer: "Advisory retainers require a 12-month commitment", correctAnswer: "Retainer agreements can be structured as month-to-month with 30-day notice", status: "pending" },
+  { id: 2, user: "Mike T.", when: "2026-02-09T14:15:00", wrongAnswer: "The QBI deduction cap is $150,000", correctAnswer: "The QBI deduction phases out at $182,100 (single) / $364,200 (joint) for 2026", status: "pending" },
+  { id: 3, user: "David L.", when: "2026-02-08T11:00:00", wrongAnswer: "LinkedIn ads convert at 1-2% for B2B", correctAnswer: "LinkedIn ads convert at 2.5-4% for B2B professional services when targeting decision-makers", status: "pending" },
 ];
 
 export const mockFailedQueries: FailedQuery[] = [
-  { id: 1, timestamp: "2026-02-10T10:15:00", userName: "Lisa K.", question: "What's the current LIHTC allocation for NYC?", reason: "No relevant sources found in knowledge base" },
-  { id: 2, timestamp: "2026-02-09T16:45:00", userName: "James R.", question: "Can you pull the latest HPD litigation data?", reason: "External API timeout" },
+  { id: 1, timestamp: "2026-02-10T10:15:00", userName: "Lisa K.", question: "What's the latest guidance on revenue recognition for subscription services?", reason: "No relevant sources found in knowledge base" },
+  { id: 2, timestamp: "2026-02-09T16:45:00", userName: "James R.", question: "Can you pull our utilization rates for January?", reason: "External API timeout — practice management system unavailable" },
 ];
 
 export const mockMostAsked: MostAskedQuestion[] = [
-  { rank: 1, question: "What are the DHCR rent stabilization requirements?", timesAsked: 23 },
-  { rank: 2, question: "How do I file for a TCO?", timesAsked: 18 },
-  { rank: 3, question: "What zoning allows medical offices?", timesAsked: 15 },
-  { rank: 4, question: "ECB violation penalty amounts?", timesAsked: 12 },
-  { rank: 5, question: "DOB permit renewal process?", timesAsked: 9 },
+  { rank: 1, question: "What are the 2026 tax planning strategies for pass-through entities?", timesAsked: 23 },
+  { rank: 2, question: "How should we structure advisory retainer agreements?", timesAsked: 18 },
+  { rank: 3, question: "What marketing channels work best for B2B services?", timesAsked: 15 },
+  { rank: 4, question: "How do we handle client billing disputes?", timesAsked: 12 },
+  { rank: 5, question: "What are the updated CPE requirements for 2026?", timesAsked: 9 },
 ];
 
 export const mockRoadmap: RoadmapItem[] = [
-  { id: 1, idea: "Auto-generate violation response letters", requestedBy: "Sarah M.", priority: "high", status: "in_progress", target: "Q1 2026", notes: "MVP ready for testing" },
-  { id: 2, idea: "Integration with DOB NOW API", requestedBy: "Mike T.", priority: "high", status: "planned", target: "Q2 2026", notes: "API access pending approval" },
+  { id: 1, idea: "Auto-generate client proposal drafts", requestedBy: "Sarah M.", priority: "high", status: "in_progress", target: "Q1 2026", notes: "MVP ready for testing" },
+  { id: 2, idea: "Integration with practice management software", requestedBy: "Mike T.", priority: "high", status: "planned", target: "Q2 2026", notes: "API access pending approval" },
   { id: 3, idea: "Multi-language support (Spanish)", requestedBy: "Lisa K.", priority: "medium", status: "backlog", target: "TBD", notes: "Requested by 3 users" },
   { id: 4, idea: "Slack thread summarization", requestedBy: "David L.", priority: "low", status: "backlog", target: "TBD", notes: "" },
   { id: 5, idea: "PDF document upload & parsing", requestedBy: "James R.", priority: "high", status: "shipped", target: "Q4 2025", notes: "Released v1.2" },
 ];
 
 export const mockApprovedCorrections: ApprovedCorrection[] = [
-  { id: 1, dateApproved: "2026-02-07", approvedBy: "Manny", whatWasWrong: "Stated rent increase cap was 3.5%", correctionApplied: "Updated to reflect 2026 RGB order: 2.75% for 1-year, 5.25% for 2-year" },
-  { id: 2, dateApproved: "2026-02-05", approvedBy: "Manny", whatWasWrong: "Incorrect ECB fine amount for work without permit", correctionApplied: "Updated penalty to $10,000 per the 2026 schedule" },
-  { id: 3, dateApproved: "2026-02-01", approvedBy: "Sarah M.", whatWasWrong: "Missing info on J-51 tax exemption eligibility", correctionApplied: "Added 2026 income limits and building requirements" },
+  { id: 1, dateApproved: "2026-02-07", approvedBy: "Managing Partner", whatWasWrong: "Stated QBI deduction threshold was $150,000", correctionApplied: "Updated to reflect 2026 thresholds: $182,100 (single) / $364,200 (MFJ)" },
+  { id: 2, dateApproved: "2026-02-05", approvedBy: "Managing Partner", whatWasWrong: "Incorrect LinkedIn ad conversion rate for B2B", correctionApplied: "Updated to 2.5-4% based on 2026 industry benchmarks" },
+  { id: 3, dateApproved: "2026-02-01", approvedBy: "Sarah M.", whatWasWrong: "Missing info on SALT workaround states", correctionApplied: "Added list of 36 states with PTE-level tax elections and deductibility confirmation" },
 ];
 
 export interface PublishedContent {
@@ -284,44 +284,44 @@ export interface PublishedContent {
   views: number;
   clicks: number;
   shares: number;
-  openRate?: number; // newsletter only
-  clickRate?: number; // newsletter only
-  subscribers?: number; // newsletter only
-  avgTimeOnPage?: string; // blog only
-  bounceRate?: number; // blog only
+  openRate?: number;
+  clickRate?: number;
+  subscribers?: number;
+  avgTimeOnPage?: string;
+  bounceRate?: number;
   seoScore: number;
   topKeyword: string;
-  generatedFrom: string; // which candidate it came from
+  generatedFrom: string;
   body: string;
 }
 
 export const mockPublishedContent: PublishedContent[] = [
   {
     id: 1,
-    title: "How to Navigate the New Alt-1 Filing Process in NYC",
+    title: "How to Structure Advisory Retainer Agreements That Work",
     contentType: "blog_post",
     publishedAt: "2026-01-28",
-    author: "Manny",
+    author: "Managing Partner",
     status: "published",
-    url: "https://greenlightexpediting.com/blog/alt-1-filing-process",
+    url: "/blog/advisory-retainer-agreements",
     views: 1243,
     clicks: 187,
     shares: 34,
     avgTimeOnPage: "4m 12s",
     bounceRate: 32,
     seoScore: 87,
-    topKeyword: "alt-1 filing NYC",
+    topKeyword: "advisory retainer agreement template",
     generatedFrom: "AI-identified from team questions",
-    body: "# How to Navigate the New Alt-1 Filing Process in NYC\n\nThe NYC Department of Buildings has recently updated its filing procedures for Alt-1 applications. This guide walks you through the key changes and what you need to know.\n\n## What Changed?\n\nAs of January 2026, Alt-1 applications now require additional documentation including updated energy compliance forms and structural peer review for buildings over 6 stories.\n\n## Step-by-Step Guide\n\n1. **Prepare your documents** — Gather all required plans, energy code compliance forms (ECC-1), and structural calculations.\n2. **Submit through DOB NOW** — Log into DOB NOW and select Alt-1 under the work type.\n3. **Schedule professional certification** — Arrange for a registered design professional to certify the application.\n4. **Track your application** — Monitor status through DOB NOW portal.\n\n## Common Pitfalls\n\n- Missing energy compliance documentation\n- Incorrect zoning district classification\n- Outdated structural calculations\n\n## Need Help?\n\nContact Greenlight Expediting for assistance with your Alt-1 filing.",
+    body: "# How to Structure Advisory Retainer Agreements That Work\n\nRetainer agreements are the backbone of advisory practices. Done right, they create predictable revenue and clear client expectations. Done wrong, they lead to scope creep and billing disputes.\n\n## Key Components\n\n1. **Define the scope clearly** — List specific deliverables and explicitly note what's excluded.\n2. **Set the fee structure** — Monthly retainer with quarterly true-ups works best for most firms.\n3. **Include change order provisions** — How additional work gets approved and billed.\n4. **Termination clauses** — 30-day notice is standard; include transition support.\n\n## Common Pitfalls\n\n- Vague scope definitions that lead to scope creep\n- Not tracking hours even on retainer engagements\n- Failing to document verbal scope changes\n\n## Template Download\n\nDownload our free advisory retainer template to get started.",
   },
   {
     id: 2,
-    title: "January 2026 NYC Real Estate Regulatory Roundup",
+    title: "January 2026 Professional Services Industry Roundup",
     contentType: "newsletter",
     publishedAt: "2026-01-31",
-    author: "Manny",
+    author: "Marketing Team",
     status: "published",
-    url: "https://greenlightexpediting.com/newsletter/jan-2026-roundup",
+    url: "/newsletter/jan-2026-roundup",
     views: 892,
     clicks: 156,
     shares: 22,
@@ -329,36 +329,36 @@ export const mockPublishedContent: PublishedContent[] = [
     clickRate: 12.8,
     subscribers: 1240,
     seoScore: 72,
-    topKeyword: "NYC real estate regulations 2026",
-    generatedFrom: "Monthly regulatory digest",
-    body: "# January 2026 NYC Real Estate Regulatory Roundup\n\nHere's what changed in NYC real estate regulations this month.\n\n## DOB Updates\n- New Alt-1 filing requirements effective January 15\n- Updated penalty schedule for ECB violations\n- Digital plan submission now mandatory for all filings\n\n## DHCR Updates\n- 2026 Rent Guidelines Board preliminary findings released\n- New guidance on preferential rent calculations\n\n## Zoning\n- City Planning Commission approved text amendments for mixed-use districts in Brooklyn\n- New FAR calculations for qualifying housing developments\n\n## What's Coming in February\n- Expected RGB final order for 2026 rent increases\n- HPD lead paint compliance deadline\n- Updated Local Law 97 reporting requirements",
+    topKeyword: "professional services trends 2026",
+    generatedFrom: "Monthly industry digest",
+    body: "# January 2026 Professional Services Industry Roundup\n\nHere's what changed in the professional services landscape this month.\n\n## Tax & Compliance\n- IRS released updated guidance on pass-through entity deductions\n- New CPE requirements announced by NASBA\n- SALT workaround expanded to 36 states\n\n## Industry Trends\n- AI adoption in professional services grew 45% YoY\n- Average utilization rates increased to 72% across mid-size firms\n- Client demand for advisory services outpacing compliance work\n\n## What's Coming in February\n- Estimated tax deadlines\n- State-level regulatory updates\n- Annual firm benchmarking reports",
   },
   {
     id: 3,
-    title: "Understanding Rent Stabilization Changes for 2026",
+    title: "2026 Tax Planning Strategies for Small Business Owners",
     contentType: "blog_post",
     publishedAt: "2026-02-03",
     author: "Sarah M.",
     status: "published",
-    url: "https://greenlightexpediting.com/blog/rent-stabilization-2026",
+    url: "/blog/tax-planning-2026",
     views: 2156,
     clicks: 312,
     shares: 67,
     avgTimeOnPage: "5m 48s",
     bounceRate: 24,
     seoScore: 94,
-    topKeyword: "rent stabilization NYC 2026",
-    generatedFrom: "DHCR Rent Guidelines candidate",
-    body: "# Understanding Rent Stabilization Changes for 2026\n\nThe 2026 Rent Guidelines Board order brings significant changes for landlords and tenants in NYC rent-stabilized apartments.\n\n## Key Changes\n\n### Allowable Increases\n- **1-year lease renewals**: 2.75% increase\n- **2-year lease renewals**: 5.25% increase\n\n### What This Means for Landlords\nThe increases are slightly below last year's rates but still represent meaningful adjustments. Landlords should update their renewal offers to reflect the new rates.\n\n### Impact on Preferential Rents\nUnder HSTPA, preferential rents are now the base for calculating increases, not the legal regulated rent. This significantly impacts how increases are calculated.\n\n## Compliance Deadlines\n- Renewal offers must reflect new rates by March 1, 2026\n- DHCR registration updates due by April 1, 2026\n\n## Common Questions\n\n**Q: Can I still deregulate apartments?**\nA: No. High-rent vacancy deregulation was eliminated under HSTPA.\n\n**Q: How do I calculate the increase on a preferential rent?**\nA: Apply the percentage to the current preferential rent, not the legal regulated rent.",
+    topKeyword: "small business tax planning 2026",
+    generatedFrom: "Tax planning candidate",
+    body: "# 2026 Tax Planning Strategies for Small Business Owners\n\nTax planning season is here. Whether you're an LLC, S-Corp, or sole proprietor, these strategies can help minimize your tax burden.\n\n## Key Strategies\n\n### 1. Maximize the QBI Deduction\nThe Section 199A deduction allows up to 20% off qualified business income. For 2026, phase-out thresholds are $182,100 (single) and $364,200 (MFJ).\n\n### 2. SALT Workaround\n36 states now allow PTE-level tax elections. This effectively circumvents the $10,000 SALT deduction cap.\n\n### 3. Retirement Plan Contributions\n- Solo 401(k): Up to $69,000 for 2026\n- SEP IRA: Up to 25% of net self-employment income\n- Defined Benefit Plans: Best for high-income owners (contributions can exceed $200k)\n\n## Timeline\n- **March 15**: S-Corp and Partnership return deadlines\n- **April 15**: Individual and C-Corp deadlines\n- **Q2**: Mid-year tax planning review\n\n## Common Mistakes\n- Not taking the QBI deduction when eligible\n- Missing state-level PTE election deadlines\n- Under-contributing to retirement plans",
   },
   {
     id: 4,
-    title: "February 2026 Regulatory Update",
+    title: "February 2026 Industry Update",
     contentType: "newsletter",
     publishedAt: "2026-02-07",
-    author: "Manny",
+    author: "Marketing Team",
     status: "published",
-    url: "https://greenlightexpediting.com/newsletter/feb-2026-update",
+    url: "/newsletter/feb-2026-update",
     views: 445,
     clicks: 78,
     shares: 11,
@@ -366,16 +366,16 @@ export const mockPublishedContent: PublishedContent[] = [
     clickRate: 14.1,
     subscribers: 1258,
     seoScore: 68,
-    topKeyword: "NYC building regulations February 2026",
-    generatedFrom: "Monthly regulatory digest",
-    body: "# February 2026 Regulatory Update\n\nYour monthly briefing on NYC regulatory changes.\n\n## Highlights\n- ECB penalty schedule updates now in effect\n- New mixed-use zoning districts approved for Brooklyn\n- DHCR 2026 RGB final order expected this month\n\n## Action Items\n1. Review updated ECB penalty amounts for your active projects\n2. Check if Brooklyn properties fall within new mixed-use districts\n3. Prepare rent stabilization renewal offers with 2026 rates",
+    topKeyword: "professional services February 2026",
+    generatedFrom: "Monthly industry digest",
+    body: "# February 2026 Industry Update\n\nYour monthly briefing on professional services trends.\n\n## Highlights\n- IRS pass-through entity guidance now in effect\n- AI-powered knowledge management seeing rapid adoption\n- Client advisory demand continues to outpace compliance\n\n## Action Items\n1. Review updated tax planning strategies for Q1 clients\n2. Evaluate AI tools for internal knowledge management\n3. Prepare mid-year advisory review proposals",
   },
   {
     id: 5,
-    title: "ECB Violation Penalty Guide: 2026 Edition",
+    title: "Client Billing Dispute Resolution Guide",
     contentType: "blog_post",
     publishedAt: "2026-02-05",
-    author: "Manny",
+    author: "Lisa K.",
     status: "draft",
     url: "",
     views: 0,
@@ -384,16 +384,15 @@ export const mockPublishedContent: PublishedContent[] = [
     avgTimeOnPage: "0s",
     bounceRate: 0,
     seoScore: 81,
-    topKeyword: "ECB violation penalties NYC",
-    generatedFrom: "ECB Penalty Schedule candidate",
-    body: "# ECB Violation Penalty Guide: 2026 Edition\n\n*DRAFT — Ready for review*\n\nThis comprehensive guide covers the updated ECB penalty schedule effective January 2026.\n\n## Major Changes\n- Work without permit penalties increased to $10,000 (up from $8,000)\n- Failure to maintain penalties doubled for repeat offenders\n- New tiered penalty structure for environmental violations\n\n## Penalty Quick Reference\n\n| Violation Type | First Offense | Repeat |\n|---|---|---|\n| Work w/o Permit | $10,000 | $25,000 |\n| Failure to Maintain | $5,000 | $10,000 |\n| Unsafe Conditions | $15,000 | $25,000 |\n| After Hours Work | $2,500 | $5,000 |",
+    topKeyword: "professional services billing disputes",
+    generatedFrom: "Client management candidate",
+    body: "# Client Billing Dispute Resolution Guide\n\n*DRAFT — Ready for review*\n\nThis guide covers how to handle billing disputes professionally while maintaining client relationships.\n\n## Prevention First\n- Clear engagement letters with specific scope\n- Regular status updates with hours tracking\n- Change order process for out-of-scope work\n\n## Resolution Steps\n\n| Step | Action | Timeline |\n|---|---|---|\n| 1 | Partner discussion with client | Within 48 hours |\n| 2 | Written scope clarification memo | Within 1 week |\n| 3 | Negotiated resolution | Within 2 weeks |\n| 4 | Mediation if needed | Within 30 days |",
   },
 ];
 
 export const mockGeneratedContent: Record<number, string> = {
-  1: "# NYC DOB Updates Filing Requirements for Alt-2 Applications\n\nThe NYC Department of Buildings has announced significant changes to Alt-2 application filing requirements, effective February 2026.\n\n## What's Changing?\n\nAlt-2 applications—used for alterations that don't change use, egress, or occupancy—now require:\n\n1. **Digital-only submission** through DOB NOW (paper applications no longer accepted)\n2. **Updated energy compliance forms** (ECC-2R)\n3. **Asbestos investigation reports** for pre-1985 buildings\n4. **Construction superintendent designation** for projects over $1M\n\n## Impact on Current Applications\n\nApplications submitted before February 1, 2026 are grandfathered under the previous requirements. However, any amendments filed after that date must comply with the new standards.\n\n## Key Deadlines\n\n- **February 1, 2026**: New requirements take effect\n- **March 15, 2026**: Grace period ends for transitioning applications\n- **April 1, 2026**: Mandatory digital plan submission\n\n## What You Need to Do\n\n1. Review your pending Alt-2 applications for compliance\n2. Update your filing templates and checklists\n3. Ensure all design professionals are registered on DOB NOW\n4. Schedule asbestos investigations for pre-1985 buildings\n\n## Need Assistance?\n\nGreenlight Expediting can help you navigate these changes. Contact us for a filing review.",
-  2: "# DHCR 2026 Rent Guidelines Board Order Summary\n\n**What Landlords and Tenants Need to Know**\n\nThe NYC Rent Guidelines Board has issued its 2026 order, setting the allowable rent increases for the city's approximately 1 million rent-stabilized apartments.\n\n## 2026 Approved Increases\n\n| Lease Type | Increase |\n|---|---|\n| 1-Year Renewal | 2.75% |\n| 2-Year Renewal | 5.25% |\n\n## Comparison with Previous Years\n\n| Year | 1-Year | 2-Year |\n|---|---|---|\n| 2026 | 2.75% | 5.25% |\n| 2025 | 3.00% | 5.50% |\n| 2024 | 3.00% | 2.75% |\n| 2023 | 3.25% | 5.00% |\n\n## Key Considerations\n\n### Preferential Rents\nUnder HSTPA, preferential rent is now the base for calculating increases. Landlords cannot revert to the legal regulated rent upon renewal.\n\n### Vacancy Increases\nHigh-rent vacancy deregulation remains eliminated. Vacancy increases are limited to the guidelines set by the RGB.\n\n## Action Items for Landlords\n\n1. Update lease renewal templates with 2026 rates\n2. File updated registrations with DHCR by April 1\n3. Review preferential rent calculations\n4. Train staff on the new guidelines\n\n## For Tenants\n\n- Your landlord must offer a renewal at or below these rates\n- Report any overcharges to DHCR\n- Keep copies of all lease documents",
-  3: "# Understanding the New ECB Penalty Schedule for Construction Sites\n\n**A Guide for Property Owners and Contractors**\n\nThe Environmental Control Board has updated its penalty schedule for construction-related violations, effective January 2026.\n\n## What Changed\n\nThe new schedule increases penalties across several categories and introduces a tiered system for repeat offenders.\n\n## Updated Penalty Amounts\n\n| Violation | Previous | New (2026) |\n|---|---|---|\n| Work Without Permit | $8,000 | $10,000 |\n| Failure to Maintain | $2,500 | $5,000 |\n| Unsafe Conditions | $10,000 | $15,000 |\n| After Hours Work | $1,600 | $2,500 |\n| No Safety Netting | $5,000 | $10,000 |\n\n## Repeat Offender Tiers\n\n- **Tier 1** (2nd offense within 18 months): 2x base penalty\n- **Tier 2** (3rd+ offense within 18 months): 2.5x base penalty + mandatory compliance plan\n\n## How to Avoid Common Violations\n\n1. Always obtain permits before starting work\n2. Post permits visibly at the job site\n3. Adhere to approved work hours\n4. Maintain required safety equipment\n5. Schedule regular site safety audits\n\n## Contesting a Violation\n\nIf you receive an ECB violation, you have 60 days to respond. Options include:\n- Paying the penalty\n- Requesting a hearing at OATH\n- Submitting a cure notice (for curable violations)\n\n## Need Help?\n\nGreenlight Expediting specializes in violation resolution. Contact us for a case review.",
-  4: "# Zoning Text Amendment: New Mixed-Use Districts in Brooklyn\n\n**What Property Owners Need to Know**\n\nThe City Planning Commission has approved zoning text amendments creating new mixed-use districts in several Brooklyn neighborhoods.\n\n## Affected Neighborhoods\n\n- Gowanus\n- East New York (selected blocks)\n- Flatbush (along Flatbush Avenue corridor)\n- Sunset Park (industrial waterfront)\n\n## Key Changes\n\n### New MX Districts\nThe new MX (Mixed-Use) districts replace previous M1 and C4 designations, allowing:\n- Residential development alongside commercial and light industrial\n- Ground-floor retail requirements on designated commercial streets\n- Community facility uses as-of-right\n\n### FAR Changes\n- **Residential FAR**: Up to 4.6 (with affordable housing bonus up to 6.0)\n- **Commercial FAR**: Up to 2.0\n- **Community Facility FAR**: Up to 3.0\n\n## Opportunities for Property Owners\n\n1. Properties in former M1 zones can now include residential units\n2. Affordable housing bonuses provide significant additional FAR\n3. Ground-floor retail spaces in high-demand corridors\n\n## Timeline\n\n- **February 2026**: Text amendment effective\n- **March 2026**: DOB begins accepting applications under new zoning\n- **June 2026**: First environmental review determinations expected",
+  1: "# How to Structure Advisory Retainer Agreements That Actually Work\n\nRetainer agreements are the backbone of professional advisory practices. When structured properly, they create predictable revenue for your firm and clear expectations for your clients.\n\n## Why Retainers Work\n\nFor professional service firms, retainers solve three critical problems:\n\n1. **Revenue predictability** — Monthly recurring revenue smooths cash flow\n2. **Scope clarity** — Both parties know exactly what's included\n3. **Client loyalty** — Retainer clients stick around 3x longer than project-based clients\n\n## Key Components\n\n### Scope Definition\nBe specific. 'Advisory services' is too vague. Instead:\n- Monthly financial review meeting (1 hour)\n- Quarterly strategic planning session (2 hours)\n- Up to 5 ad-hoc email/phone consultations per month\n- Excluded: tax preparation, audit, litigation support\n\n### Fee Structure\nThree proven models:\n1. **Flat monthly fee** — Simple, predictable. Best for well-defined scopes.\n2. **Retainer + hourly overage** — Base fee covers X hours; additional hours billed at a rate.\n3. **Value-based retainer** — Priced on outcomes, not hours. Highest margins.\n\n### Change Order Process\nThis is where most retainers fail. Include a simple process:\n1. Client requests additional work\n2. Firm sends a scope change notice within 48 hours\n3. Client approves in writing (email counts)\n4. Work proceeds and is billed separately\n\n## Template\n\nDownload our free retainer agreement template at the link below.",
+  2: "# 2026 Tax Planning Strategies Every Small Business Should Know\n\n**What Business Owners Need to Act On Before Q2**\n\nThe 2026 tax landscape brings meaningful changes for small business owners, especially those with pass-through entities.\n\n## Key Changes\n\n### QBI Deduction Updates\n| Detail | 2025 | 2026 |\n|---|---|---|\n| Deduction Rate | 20% | 20% |\n| Phase-out (Single) | $177,500 | $182,100 |\n| Phase-out (MFJ) | $355,000 | $364,200 |\n\n### SALT Workaround Expansion\n36 states now allow PTE-level tax elections. If your clients are in high-tax states, this is a game-changer — effectively bypassing the $10,000 SALT cap.\n\n## Top 5 Strategies\n\n1. **Maximize retirement contributions** — Solo 401(k) limits at $69,000 for 2026\n2. **Elect PTE taxation** — Where available, this can save $10,000+ annually\n3. **Accelerate deductions** — Prepay expenses, maximize Section 179\n4. **Entity structure review** — S-Corp election can reduce self-employment tax\n5. **Charitable giving** — Donor-advised funds for bunching strategy\n\n## Action Items for Clients\n\n1. Review entity structure before March 15 deadlines\n2. Check state PTE election deadlines\n3. Schedule mid-year tax projection meetings\n4. Update estimated tax payments",
+  3: "# Client Onboarding Checklist: From First Call to Kickoff\n\n**A Repeatable Process for Professional Service Firms**\n\nOnboarding sets the tone for the entire client relationship. A structured process reduces churn and improves satisfaction.\n\n## Phase 1: Pre-Engagement (Week 1)\n\n- [ ] Discovery call completed\n- [ ] Needs assessment documented\n- [ ] Fee quote prepared\n- [ ] Engagement letter drafted and sent\n- [ ] Engagement letter signed and returned\n\n## Phase 2: Setup (Week 2)\n\n- [ ] Client record created in CRM\n- [ ] Welcome email sent with document checklist\n- [ ] Client portal access set up\n- [ ] Billing preferences confirmed\n- [ ] Primary contact and escalation contacts identified\n\n## Phase 3: Kickoff (Week 3)\n\n- [ ] Kickoff meeting scheduled\n- [ ] Team introductions completed\n- [ ] Communication cadence agreed upon\n- [ ] First deliverable timeline confirmed\n- [ ] 30-day check-in scheduled\n\n## Common Mistakes\n\n1. ❌ Starting work before the engagement letter is signed\n2. ❌ Not introducing the full team\n3. ❌ Skipping the 30-day check-in\n4. ❌ Failing to set communication expectations",
+  4: "# How We Use AI to Answer 94% of Team Questions Instantly\n\n**A Case Study in Knowledge Management for Small Firms**\n\nOur 23-person firm handles over 1,200 internal questions per month. Here's how we built an AI knowledge base that answers 94% of them correctly.\n\n## The Problem\n\nTeam members spent an average of 15 minutes per question hunting through shared drives, Slack threads, and asking colleagues. That's 300+ hours per month of lost productivity.\n\n## The Solution\n\nWe built an internal AI assistant that:\n- Ingests our process documents, templates, and past answers\n- Responds to team questions in 2.3 seconds on average\n- Includes source citations for verification\n- Learns from team corrections\n\n## Results\n\n| Metric | Before | After |\n|---|---|---|\n| Avg time to answer | 15 minutes | 2.3 seconds |\n| Questions answered correctly | ~60% (self-serve) | 94.2% |\n| Monthly productivity saved | 0 | 280+ hours |\n| Cost | Senior staff time | $18/month |",
 };
-

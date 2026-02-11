@@ -19,9 +19,9 @@ serve(async (req) => {
       throw new Error("LOVABLE_API_KEY is not configured");
     }
 
-    const systemPrompt = `You are the AI Cross-Reference Engine for Beacon, an internal knowledge platform for GLE Consulting — a NYC-based building code, zoning, and DHCR/rent stabilization consultancy.
+    const systemPrompt = `You are the AI Cross-Reference Engine for Beacon, a content intelligence platform for professional service firms.
 
-Your job: Analyze the intersection of team conversations, Knowledge Base documents, approved corrections, and question trends to generate actionable content ideas.
+Your job: Analyze the intersection of team conversations, Knowledge Base documents, approved corrections, and question trends to generate actionable content ideas tailored to the firm's industry and audience.
 
 For each idea, provide:
 - A specific, SEO-friendly title
@@ -36,9 +36,9 @@ Focus on:
 1. Topics the team asks about repeatedly (knowledge gaps = content opportunities)
 2. Recent corrections (if the team got it wrong, clients probably do too)
 3. Cross-references between conversations and documents (patterns = thought leadership)
-4. Timely regulatory updates that affect GLE's client base
+4. Timely industry updates that affect the firm's client base
 
-Generate 3-5 high-quality content ideas. Be specific to GLE's domain (NYC building code, DOB, DHCR, zoning, violations, etc.).`;
+Generate 3-5 high-quality content ideas relevant to the firm's specific industry and audience.`;
 
     const userPrompt = `Here's the current platform data to analyze:
 

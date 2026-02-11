@@ -15,11 +15,11 @@ interface ActivityEvent {
 }
 
 const initialEvents: ActivityEvent[] = [
-  { id: 1, type: "correction", title: "Correction approved", description: "RGB rent increase rates updated by Manny", timestamp: "2026-02-10T14:30:00", read: false, navigateTo: "/feedback" },
-  { id: 2, type: "content", title: "Blog post published", description: "Understanding Rent Stabilization Changes for 2026", timestamp: "2026-02-10T10:00:00", read: false, navigateTo: "/content" },
-  { id: 3, type: "failed", title: "Failed query detected", description: "LIHTC allocation question — no sources found", timestamp: "2026-02-10T09:15:00", read: false, navigateTo: "/conversations" },
+  { id: 1, type: "correction", title: "Correction approved", description: "QBI deduction thresholds updated by Managing Partner", timestamp: "2026-02-10T14:30:00", read: false, navigateTo: "/feedback" },
+  { id: 2, type: "content", title: "Blog post published", description: "2026 Tax Planning Strategies for Small Business Owners", timestamp: "2026-02-10T10:00:00", read: false, navigateTo: "/content" },
+  { id: 3, type: "failed", title: "Failed query detected", description: "Revenue recognition question — no sources found", timestamp: "2026-02-10T09:15:00", read: false, navigateTo: "/conversations" },
   { id: 4, type: "digest", title: "Weekly digest ready", description: "Feb 10-14 digest drafted with 3 items", timestamp: "2026-02-10T08:00:00", read: true, navigateTo: "/feedback" },
-  { id: 5, type: "correction", title: "Correction submitted", description: "Sarah M. flagged TCO inspection info", timestamp: "2026-02-09T16:00:00", read: true, navigateTo: "/feedback" },
+  { id: 5, type: "correction", title: "Correction submitted", description: "Sarah M. flagged retainer commitment info", timestamp: "2026-02-09T16:00:00", read: true, navigateTo: "/feedback" },
   { id: 6, type: "content", title: "Newsletter sent", description: "Beacon Weekly — Feb 3-7 sent to 1,258 recipients", timestamp: "2026-02-07T09:00:00", read: true, navigateTo: "/content" },
 ];
 

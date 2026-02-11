@@ -14,18 +14,18 @@ interface CalendarEvent {
 }
 
 const calendarEvents: CalendarEvent[] = [
-  { id: 1, date: "2026-01-28", title: "How to Navigate the New Alt-1 Filing Process", type: "blog_post", status: "published" },
-  { id: 2, date: "2026-01-31", title: "January 2026 Regulatory Roundup", type: "newsletter", status: "published" },
+  { id: 1, date: "2026-01-28", title: "How to Structure Advisory Retainer Agreements", type: "blog_post", status: "published" },
+  { id: 2, date: "2026-01-31", title: "January 2026 Industry Roundup", type: "newsletter", status: "published" },
   { id: 3, date: "2026-01-31", title: "Weekly Digest — Jan 27-31", type: "digest", status: "published" },
-  { id: 4, date: "2026-02-03", title: "Understanding Rent Stabilization Changes", type: "blog_post", status: "published" },
-  { id: 5, date: "2026-02-05", title: "ECB Violation Penalty Guide: 2026", type: "blog_post", status: "draft" },
+  { id: 4, date: "2026-02-03", title: "2026 Tax Planning Strategies", type: "blog_post", status: "published" },
+  { id: 5, date: "2026-02-05", title: "Client Billing Dispute Resolution Guide", type: "blog_post", status: "draft" },
   { id: 6, date: "2026-02-07", title: "Beacon Weekly — Feb 3-7", type: "newsletter", status: "published" },
   { id: 7, date: "2026-02-07", title: "Weekly Digest — Feb 3-7", type: "digest", status: "published" },
   { id: 8, date: "2026-02-10", title: "Beacon Weekly — Feb 10-14", type: "newsletter", status: "draft" },
   { id: 9, date: "2026-02-14", title: "Weekly Digest — Feb 10-14", type: "digest", status: "scheduled" },
-  { id: 10, date: "2026-02-17", title: "NYC DOB Alt-2 Filing Updates", type: "blog_post", status: "scheduled" },
+  { id: 10, date: "2026-02-17", title: "B2B Marketing for Professional Services", type: "blog_post", status: "scheduled" },
   { id: 11, date: "2026-02-21", title: "Beacon Weekly — Feb 17-21", type: "newsletter", status: "scheduled" },
-  { id: 12, date: "2026-02-28", title: "February 2026 Regulatory Roundup", type: "newsletter", status: "scheduled" },
+  { id: 12, date: "2026-02-28", title: "February 2026 Industry Roundup", type: "newsletter", status: "scheduled" },
 ];
 
 const typeColors: Record<string, string> = {

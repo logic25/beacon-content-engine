@@ -19,8 +19,8 @@ const insights: Insight[] = [
   },
   {
     id: 2,
-    title: "Zoning questions spike on Mondays",
-    description: "62% of zoning queries come in on Mondays. Consider pre-loading zoning updates in the Monday digest.",
+    title: "Tax planning questions spike on Mondays",
+    description: "62% of tax-related queries come in on Mondays. Consider pre-loading updates in the Monday digest.",
     type: "trend",
     icon: <Calendar className="h-4 w-4" />,
   },
@@ -40,8 +40,8 @@ const insights: Insight[] = [
   },
   {
     id: 5,
-    title: "DHCR is your #1 topic",
-    description: "25% of all queries are DHCR-related. Your rent stabilization blog post has 2,156 views — consider a follow-up.",
+    title: "Tax Planning is your #1 topic",
+    description: "25% of all queries are tax-related. Your tax planning blog post has 2,156 views — consider a follow-up.",
     type: "info",
     icon: <TrendingUp className="h-4 w-4" />,
   },
