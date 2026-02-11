@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { mockConversations, Conversation, Suggestion } from "@/data/mockData";
+import { Conversation, Suggestion } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { suggestionsStore } from "@/data/suggestionsStore";
 import { contentStore } from "@/data/contentStore";
 import { motion, AnimatePresence } from "framer-motion";
@@ -79,7 +80,8 @@ function getMockResponse(question: string): { content: string; sources: string[]
 
 export default function ChatInterface() {
   const isMobile = useIsMobile();
-  const [conversations] = useState<Conversation[]>(mockConversations);
+  const { conversations: industryConversations } = useIndustryData();
+  const [conversations] = useState<Conversation[]>(industryConversations);
   const [activeConvId, setActiveConvId] = useState<number | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");

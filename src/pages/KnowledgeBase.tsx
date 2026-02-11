@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import DashboardLayout from "@/components/DashboardLayout";
 import PageHeader from "@/components/PageHeader";
 import { mockKnowledgeDocuments, knowledgeCategories, KnowledgeDocument, conversationDocRefs, mockContentIdeas, ContentIdea } from "@/data/knowledgeBaseData";
-import { mockApprovedCorrections, mockConversations, mockMostAsked } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { contentStore } from "@/data/contentStore";
 import { supabase } from "@/integrations/supabase/client";
 import { motion, AnimatePresence } from "framer-motion";
@@ -15,6 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 
 const KnowledgeBase = () => {
+  const { conversations: industryConversations, approvedCorrections, mostAsked } = useIndustryData();
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [selected, setSelected] = useState<KnowledgeDocument | null>(null);
@@ -29,7 +30,7 @@ const KnowledgeBase = () => {
     try {
       const { data, error } = await supabase.functions.invoke("generate-content-ideas", {
         body: {
-          conversations: mockConversations.slice(0, 6).map((c) => ({
+          conversations: industryConversations.slice(0, 6).map((c) => ({
             userName: c.userName,
             question: c.question,
             topic: c.topic,
@@ -41,12 +42,12 @@ const KnowledgeBase = () => {
             referenceCount: d.referenceCount,
             type: d.type,
           })),
-          corrections: mockApprovedCorrections.map((c) => ({
+          corrections: approvedCorrections.map((c) => ({
             whatWasWrong: c.whatWasWrong,
             correctionApplied: c.correctionApplied,
             approvedBy: c.approvedBy,
           })),
-          mostAskedQuestions: mockMostAsked.map((q) => ({
+          mostAskedQuestions: mostAsked.map((q) => ({
             question: q.question,
             timesAsked: q.timesAsked,
           })),
@@ -281,7 +282,7 @@ const KnowledgeBase = () => {
                   These corrections were submitted by the team and approved. They're now part of Beacon's knowledge base.
                 </p>
                 <div className="space-y-3">
-                  {mockApprovedCorrections.map((c, i) => (
+                  {approvedCorrections.map((c, i) => (
                     <motion.div
                       key={c.id}
                       initial={{ opacity: 0, y: 8 }}

@@ -1,9 +1,10 @@
-import { mockMostAsked } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { motion } from "framer-motion";
 import { HelpCircle } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 export default function MostAskedQuestions() {
+  const { mostAsked } = useIndustryData();
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -26,7 +27,7 @@ export default function MostAskedQuestions() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {mockMostAsked.map((q) => (
+          {mostAsked.map((q) => (
             <TableRow key={q.rank}>
               <TableCell className="font-mono text-sm font-bold text-primary">{q.rank}</TableCell>
               <TableCell className="text-sm">{q.question}</TableCell>

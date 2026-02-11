@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { mockConversations, Conversation } from "@/data/mockData";
+import { Conversation } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { motion } from "framer-motion";
 import { CheckCircle, XCircle, Clock, FileText, X, Shield, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import ReactMarkdown from "react-markdown";
-
 const topicColors: Record<string, string> = {
   DHCR: "bg-chart-4/10 text-chart-4",
   Zoning: "bg-info/10 text-info",
@@ -18,6 +18,7 @@ const topicColors: Record<string, string> = {
 };
 
 export default function ConversationsList() {
+  const { conversations } = useIndustryData();
   const [selected, setSelected] = useState<Conversation | null>(null);
 
   return (
@@ -28,7 +29,7 @@ export default function ConversationsList() {
         transition={{ duration: 0.5, delay: 0.35 }}
         className="space-y-3"
       >
-        {mockConversations.map((conv, i) => (
+        {conversations.map((conv, i) => (
           <motion.div
             key={conv.id}
             initial={{ opacity: 0, x: -8 }}

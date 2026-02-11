@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { mockMostAsked, mockApprovedCorrections, mockPublishedContent } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { mockKnowledgeDocuments } from "@/data/knowledgeBaseData";
 import { motion } from "framer-motion";
 import { Sparkles, Loader2, Copy, Check } from "lucide-react";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
 export default function DigestGenerator({ onInsert }: { onInsert?: (body: string) => void }) {
+  const data = useIndustryData();
   const [generating, setGenerating] = useState(false);
   const [generatedBody, setGeneratedBody] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -21,12 +22,13 @@ export default function DigestGenerator({ onInsert }: { onInsert?: (body: string
       weekStart.setDate(now.getDate() - 7);
       const dateRange = `${weekStart.toLocaleDateString("en-US", { month: "short", day: "numeric" })} – ${now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`;
 
-      const topQuestions = mockMostAsked.slice(0, 5);
+      const { mostAsked, approvedCorrections, publishedContent } = data;
+      const topQuestions = mostAsked.slice(0, 5);
       const recentDocs = mockKnowledgeDocuments
         .filter((d) => new Date(d.addedAt) > weekStart)
         .slice(0, 5);
-      const recentCorrections = mockApprovedCorrections.slice(0, 3);
-      const recentContent = mockPublishedContent
+      const recentCorrections = approvedCorrections.slice(0, 3);
+      const recentContent = publishedContent
         .filter((c) => c.status === "published")
         .slice(0, 3);
 

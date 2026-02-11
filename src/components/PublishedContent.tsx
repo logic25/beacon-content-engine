@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { mockPublishedContent, PublishedContent } from "@/data/mockData";
+import { PublishedContent } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import ContentPerformance from "@/components/ContentPerformance";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, MousePointerClick, Share2, Mail, BarChart3, TrendingUp, FileText, Newspaper, Clock, ArrowUpRight, X, MessageSquare, Sparkles } from "lucide-react";
@@ -30,18 +31,19 @@ function getSourceIcon(source: string) {
 }
 
 export default function PublishedContentList() {
+  const { publishedContent } = useIndustryData();
   const [filter, setFilter] = useState<"all" | "blog_post" | "newsletter">("all");
   const [selectedContent, setSelectedContent] = useState<PublishedContent | null>(null);
   const [showPerformance, setShowPerformance] = useState(true);
 
-  const filtered = mockPublishedContent.filter(
+  const filtered = publishedContent.filter(
     (c) => filter === "all" || c.contentType === filter
   );
 
-  const totalViews = mockPublishedContent.reduce((a, b) => a + b.views, 0);
-  const totalClicks = mockPublishedContent.reduce((a, b) => a + b.clicks, 0);
-  const totalShares = mockPublishedContent.reduce((a, b) => a + b.shares, 0);
-  const publishedCount = mockPublishedContent.filter((c) => c.status === "published").length;
+  const totalViews = publishedContent.reduce((a, b) => a + b.views, 0);
+  const totalClicks = publishedContent.reduce((a, b) => a + b.clicks, 0);
+  const totalShares = publishedContent.reduce((a, b) => a + b.shares, 0);
+  const publishedCount = publishedContent.filter((c) => c.status === "published").length;
 
   return (
     <>

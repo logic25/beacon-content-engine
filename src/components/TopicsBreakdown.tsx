@@ -1,8 +1,9 @@
-import { mockTopics } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { motion } from "framer-motion";
 
 export default function TopicsBreakdown() {
-  const maxCount = Math.max(...mockTopics.map((t) => t.count));
+  const { topics } = useIndustryData();
+  const maxCount = Math.max(...topics.map((t) => t.count));
 
   return (
     <motion.div
@@ -14,7 +15,7 @@ export default function TopicsBreakdown() {
       <h3 className="mb-1 font-mono text-sm font-semibold text-foreground">Questions by Topic</h3>
       <p className="mb-6 text-xs text-muted-foreground">Distribution across knowledge areas</p>
       <div className="space-y-3">
-        {mockTopics.map((topic, i) => (
+        {topics.map((topic, i) => (
           <div key={topic.topic} className="group">
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-sm font-medium text-foreground">{topic.topic}</span>

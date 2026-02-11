@@ -1,5 +1,6 @@
 import { useState, useSyncExternalStore } from "react";
-import { mockApprovedCorrections as initialCorrections, Suggestion, ApprovedCorrection } from "@/data/mockData";
+import { Suggestion, ApprovedCorrection } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { suggestionsStore } from "@/data/suggestionsStore";
 import { mockDigests, WeeklyDigest } from "@/data/digestData";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,6 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function FeedbackManager() {
   const suggestions = useSyncExternalStore(suggestionsStore.subscribe, suggestionsStore.getAll);
+  const { approvedCorrections: initialCorrections } = useIndustryData();
   const [corrections, setCorrections] = useState<ApprovedCorrection[]>([...initialCorrections]);
   const [digests, setDigests] = useState<WeeklyDigest[]>([...mockDigests]);
   const [selectedSuggestion, setSelectedSuggestion] = useState<Suggestion | null>(null);

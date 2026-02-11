@@ -1,8 +1,9 @@
-import { mockFailedQueries } from "@/data/mockData";
+import { useIndustryData } from "@/hooks/useIndustryData";
 import { motion } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
 
 export default function FailedQueries() {
+  const { failedQueries } = useIndustryData();
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -16,11 +17,11 @@ export default function FailedQueries() {
       </div>
       <p className="mb-5 text-xs text-muted-foreground">Need attention</p>
 
-      {mockFailedQueries.length === 0 ? (
+      {failedQueries.length === 0 ? (
         <p className="text-sm text-success">No failed queries — great job!</p>
       ) : (
         <div className="space-y-3">
-          {mockFailedQueries.map((q) => (
+          {failedQueries.map((q) => (
             <div key={q.id} className="rounded-lg border border-destructive/20 bg-destructive/5 p-4">
               <p className="text-sm font-medium text-foreground">{q.question}</p>
               <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
