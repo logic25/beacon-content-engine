@@ -18,8 +18,8 @@ const sourceIcons: Record<string, React.ReactNode> = {
   "AI-identified": <Sparkles className="h-2.5 w-2.5" />,
   "conversation": <MessageSquare className="h-2.5 w-2.5" />,
   "Monthly": <TrendingUp className="h-2.5 w-2.5" />,
-  "DHCR": <FileText className="h-2.5 w-2.5" />,
-  "ECB": <FileText className="h-2.5 w-2.5" />,
+  "Tax": <FileText className="h-2.5 w-2.5" />,
+  "Client": <FileText className="h-2.5 w-2.5" />,
 };
 
 function getSourceIcon(source: string) {

@@ -9,19 +9,19 @@ export interface ContentTemplate {
 
 export const contentTemplates: ContentTemplate[] = [
   {
-    id: "regulatory-update",
-    name: "Regulatory Update",
+    id: "industry-update",
+    name: "Industry Update",
     icon: "📋",
-    description: "Announce DOB/DHCR regulatory changes with impact analysis and action items.",
+    description: "Announce regulatory or industry changes with impact analysis and action items.",
     category: "Updates",
-    structure: `# [Regulatory Body] [Update Title]
+    structure: `# [Industry/Regulatory] [Update Title]
 
 **Effective Date:** [Date]
 **Impact Level:** [High/Medium/Low]
 
 ## What Changed
 
-[Describe the regulatory change in 2-3 sentences]
+[Describe the change in 2-3 sentences]
 
 ## Key Details
 
@@ -48,13 +48,13 @@ A: [Answer]
 
 ## Need Help?
 
-Contact Greenlight Expediting for assistance navigating this change.`,
+Contact our team for assistance navigating this change.`,
   },
   {
     id: "how-to-guide",
     name: "How-To Guide",
     icon: "📝",
-    description: "Step-by-step procedure for common filing, compliance, or operational tasks.",
+    description: "Step-by-step procedure for common tasks your clients or team need to follow.",
     category: "Guides",
     structure: `# How to [Task Name]
 
@@ -101,9 +101,9 @@ Contact Greenlight Expediting for assistance navigating this change.`,
     icon: "🔍",
     description: "Showcase a real project with challenges, solutions, and outcomes.",
     category: "Case Studies",
-    structure: `# Case Study: [Project/Building Name]
+    structure: `# Case Study: [Client/Project Name]
 
-**Location:** [Address]
+**Industry:** [Industry]
 **Project Type:** [Type]
 **Duration:** [Timeline]
 
@@ -166,13 +166,13 @@ Contact Greenlight Expediting for assistance navigating this change.`,
 [Progress on requested features]
 
 ## 📅 Coming Up
-[Upcoming deadlines, events, compliance dates]`,
+[Upcoming deadlines, events, key dates]`,
   },
   {
     id: "client-advisory",
     name: "Client Advisory",
     icon: "⚡",
-    description: "Urgent update for clients about regulatory changes or compliance deadlines.",
+    description: "Urgent update for clients about important changes or compliance deadlines.",
     category: "Advisories",
     structure: `# ⚡ Client Advisory: [Topic]
 
@@ -195,17 +195,17 @@ Contact Greenlight Expediting for assistance navigating this change.`,
 1. **By [Date]:** [Action 1]
 2. **By [Date]:** [Action 2]
 
-## Penalties for Non-Compliance
+## Consequences of Inaction
 
-- [Penalty 1]
-- [Penalty 2]
+- [Consequence 1]
+- [Consequence 2]
 
-## How Greenlight Can Help
+## How We Can Help
 
-[Brief description of services relevant to this advisory]
+[Brief description of relevant services]
 
 ---
 
-*Questions? Reply to this email or call [phone number].*`,
+*Questions? Reply to this email or reach out to your account manager.*`,
   },
 ];
